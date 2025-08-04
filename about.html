@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Partner With Us – Morning Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3fef4;
+            padding: 40px;
+        }
+
+        .partner-section {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .partner-section h2 {
+            color: #2e7d32;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .partner-section p.subtitle {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .about-brand {
+            border-left: 6px solid #4caf50;
+            background-color: #fafffa;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .about-brand h3 {
+            color: #388e3c;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .about-brand p {
+            font-size: 16.5px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .partner-section {
+                padding: 25px;
+            }
+
+            .partner-section h2 {
+                font-size: 28px;
+            }
+
+            .about-brand h3 {
+                font-size: 24px;
+            }
+        }
+
+        /* paragraph2 */
+        .why-partner {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        .why-partner h2 {
+            font-size: 32px;
+            color: #2e7d32;
+            margin-bottom: 30px;
+        }
+
+        .benefit-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .benefit-table th,
+        .benefit-table td {
+            padding: 18px 20px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .benefit-table th {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .benefit-table td {
+            background-color: #f9fff9;
+            font-size: 16px;
+            color: #333;
+            border-bottom: 1px solid #e0f2f1;
+        }
+
+        .checkmark {
+            font-size: 18px;
+            color: #4caf50;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .why-partner {
+                padding: 25px;
+            }
+
+            .benefit-table th,
+            .benefit-table td {
+                padding: 12px 10px;
+                font-size: 15px;
+            }
+        }
+
+        /*  */
+        .footer {
+            background: #f3f9f4;
+            color: #1a1a1a;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            gap: 30px;
+        }
+
+        .footer-section {
+            flex: 1 1 220px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #0b6833;
+        }
+
+        .footer-section p,
+        .footer-section ul,
+        .footer-section a {
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #0b6833;
+        }
+
+        .social-icons a {
+            margin-right: 12px;
+            font-size: 18px;
+            color: #0b6833;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ff6f61;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #ccc;
+            margin-top: 30px;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        .footer-bottom .promise span {
+            display: inline-block;
+            margin: 5px 10px;
+            font-size: 13px;
+            color: #0b6833;
+            font-weight: bold;
+        }
+
+        .footer-bottom .disclaimer {
+            font-size: 12px;
+            margin-top: 10px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .social-icons {
+            display: flex;
+            flex-direction: row;
+            /* force row layout */
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            /* allows wrapping on small screens */
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .social-icons a {
+            font-size: 22px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 50%;
+            color: #333333;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .social-icons a:hover {
+            background-color: #e6e6e6;
+            transform: scale(1.1);
+        }
+
+        /* Individual icon colors */
+        .social-icons .fa-facebook-f {
+            color: #3b5998;
+        }
+
+        .social-icons .fa-instagram {
+            color: #E1306C;
+        }
+
+        .social-icons .fa-youtube {
+            color: #FF0000;
+        }
+
+        .social-icons .fa-linkedin-in {
+            color: #0077B5;
+        }
+
+
+        @media (max-width: 768px) {
+            .social-icons {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .social-icons a {
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="partner-section">
+        <h2>🤝 Partner With Us</h2>
+        <p class="subtitle">Bring Morning Care to More People – Let’s Grow Together</p>
+
+        <div class="about-brand">
+            <h3> About the Brand</h3>
+            <p><strong>Morning Care Ayurvedic Granules</strong> is a fast-growing and trusted Ayurvedic product,
+                specially formulated for effective relief from <strong>constipation</strong>, improved
+                <strong>digestion</strong>, and overall <strong>gut health</strong>.
+            </p>
+            <p>Backed by a powerful herbal formulation, a loyal customer base, and strong word-of-mouth referrals,
+                Morning Care is rapidly becoming the preferred natural wellness solution across <strong>urban</strong>
+                and <strong>rural India</strong>.</p>
+            <p>As we expand our reach, we are actively seeking passionate <strong>distributors, wholesalers,
+                    retailers</strong>, and <strong>Ayurvedic store owners</strong> to join us in spreading health and
+                healing through Ayurveda.</p>
+        </div>
+    </section>
+    <br>
+    <!-- paragraph 2 -->
+    <section class="why-partner">
+        <h2> Why Partner With Morning Care?</h2>
+        <table class="benefit-table">
+            <thead>
+                <tr>
+                    <th>Benefit</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="checkmark">✅</span>High Demand Product</td>
+                    <td>Constipation and digestion issues are extremely common – daily-use product with high repeat rate
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="checkmark">✅</span>Attractive Margins</td>
+                    <td>Strong distributor & retailer margins for profitable selling</td>
+                </tr>
+                <tr>
+                    <td><span class="checkmark">✅</span>Ayurvedic, Safe, & Trusted</td>
+                    <td>100% herbal, non-habit forming, ideal for all age groups</td>
+                </tr>
+                <tr>
+                    <td><span class="checkmark">✅</span>Fast-Moving SKU Sizes</td>
+                    <td>100g and 200g packs – easy to stock, easy to sell</td>
+                </tr>
+                <tr>
+                    <td><span class="checkmark">✅</span>Marketing Support</td>
+                    <td>Digital creatives, banners, product training, video content</td>
+                </tr>
+                <tr>
+                    <td><span class="checkmark">✅</span>PAN India Dispatch</td>
+                    <td>Quick delivery and low MOQ for new partners</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <!--  -->
+    <br>
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-section about">
+                <h3>About Morning Care</h3>
+                <p>100% Ayurvedic formula for constipation, gas & acidity relief. Backed by 220+ years of heritage from
+                    <strong>Gobind Ram Kahan Chand</strong>. Naturally effective. Gently powerful.
+                </p>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <!-- <li><a href="/distributor-login">Distributor Login</a></li> -->
+                </ul>
+            </div>
+
+            <div class="footer-section contact">
+                <h3>Customer Care</h3>
+                <p>📞 <a href="tel:+918000545454">+91-8000545454</a></p>
+                <p>📧 <a href="mailto:info@morningcaregk.com">info@morningcaregk.com</a></p>
+            </div>
+
+            <div class="footer-section follow">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61577642977929" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/morning_care_?igsh=MTVrcHE3dHA4bTY5aw==" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UC1WbY67iQpN37c9ZLjgcFbw" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/gobindramkahanchand/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="promise">
+                <span>✅ 100% Ayurvedic</span>
+                <span>✅ Non-Habit Forming</span>
+                <span>✅ Made in India</span>
+                <span>✅ Trusted by Thousands</span>
+            </div>
+            <p class="disclaimer">© 2025 Gobind Ram Kahan Chand | All Rights Reserved.<br>
+                This product is not intended to diagnose, treat, cure, or prevent any disease. Please consult your
+                physician before use.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

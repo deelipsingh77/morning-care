@@ -13,33 +13,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body>
     <nav class="navbar">
-        <div class="navbar-container container">
-            <input type="checkbox" id="menu-toggle" />
-            <div class="hamburger-lines">
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
+        <div class="navbar-left">
+            <div class="navbar-logo">
+                <img src="logo.jpg" alt="Yumway Logo">
             </div>
-
-            <ul class="menu-items">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#" class="btn-nav">Buy Now / Shop</a></li>
-                <li><a href="#" class="btn-nav outline">Distributors / B2B</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-
-            <h1 class="logo">Morning Care</h1>
+            <!-- <a href="#">Morning Care</a> -->
+            <div class="navbar-marquee-wrapper">
+                <div class="navbar-marquee">
+                    <span>220+ YEARS OF AYURVEDIC TRUST</span>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-toggle" id="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-menu" id="navbar-menu">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <!-- <a href="#">EVENTS</a> -->
+            <a href="#">FAQ</a>
+            <a href="contact.html">CONTACT US</a>
         </div>
     </nav>
-    <!-- crausal -->
-     <br>
+    <!-- carousel -->
+    <br>
     <!-- Carousel HTML -->
     <div id="carouselExampleCaptions" class="carousel slide custom-carousel" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -53,21 +58,28 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="3000">
-                <img src="b1.jpg" class="d-block w-100" alt="Slide 1">
+                <img src="banner4.jpg" class="d-block w-100" alt="Slide 1">
                 <!-- <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Smooth carousel animation for slide 1.</p>
                 </div> -->
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="b2.jpg" class="d-block w-100" alt="Slide 2">
+                <img src="banner2.jpg" class="d-block w-100" alt="Slide 2">
                 <!-- <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
                     <p>Smooth carousel animation for slide 2.</p>
                 </div> -->
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="b3.jpg" class="d-block w-100" alt="Slide 3">
+                <img src="banner3.jpg" class="d-block w-100" alt="Slide 3">
+                <!-- <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Smooth carousel animation for slide 3.</p>
+                </div> -->
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="banner1.jpg" class="d-block w-100" alt="Slide 3">
                 <!-- <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
                     <p>Smooth carousel animation for slide 3.</p>
@@ -90,7 +102,7 @@
     <!-- home  -->
     <section class="product-highlight">
         <div class="container">
-            <h2 class="product-title">🌿 Morning Care Ayurvedic Granules</h2>
+            <h2 class="product-title"> Morning Care Ayurvedic Granules</h2>
             <p class="product-subtitle">
                 Natural Relief from <strong>Constipation, Gas & Indigestion</strong> – Without Side Effects
             </p>
@@ -101,7 +113,7 @@
     <section class="about-product">
         <div class="about-container">
             <div class="about-box">
-                <h2 class="about-title">🧪 What is <span>Morning Care</span>?</h2>
+                <h2 class="about-title"> What is <span>Morning Care</span>?</h2>
                 <p class="about-text">
                     <strong>Morning Care</strong> is a <span class="highlight">100% Ayurvedic, plant-based
                         formulation</span> crafted to gently relieve constipation and improve digestive health. Made
@@ -120,7 +132,7 @@
     <section class="styled-ingredients-section">
         <div class="ingredients-wrapper">
             <div class="ingredients-left">
-                <h2 class="ingredients-heading">🌿 Key Ingredients</h2>
+                <h2 class="ingredients-heading"> Key Ingredients in Morning Care</h2>
                 <p class="ingredients-intro">Each herb is carefully selected to improve digestion naturally and
                     holistically:</p>
 
@@ -172,55 +184,80 @@
         </div>
     </section>
 
-    <!-- new -->
-    <div class="why-choose-us">
-        <div class="choose-item">
-            <h4>Why Choose Us?</h4>
-        </div>
-        <div class="choose-item">
-            <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Experience Icon" />
-            <div>
-                <h3>10+</h3>
-                <p>Years of Experience</p>
-            </div>
-        </div>
-        <div class="choose-item">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="Students Icon" />
-            <div>
-                <h3>100000+</h3>
-                <p>Trusted Students</p>
-            </div>
-        </div>
-        <div class="choose-item">
-            <img src="https://cdn-icons-png.flaticon.com/512/921/921347.png" alt="Trainers Icon" />
-            <div>
-                <h3>500+</h3>
-                <p>Qualified Trainers</p>
-            </div>
-        </div>
-    </div>
-
-
-
     <!-- new image  -->
     <section class="key-benefits-section">
         <div class="container benefits-wrapper">
             <div class="benefits-text">
-                <h2 class="section-heading">✅ Key Benefits</h2>
+                <h2 class="section-heading"> Key Benefits of Morning Care</h2>
                 <ul class="benefits-list">
-                    <li><span>✔️</span> <strong>Relieves</strong> constipation without cramps or urgency</li>
-                    <li><span>✔️</span> <strong>Reduces</strong> gas, bloating, and acidity</li>
-                    <li><span>✔️</span> <strong>Supports</strong> healthy digestion and metabolism</li>
-                    <li><span>✔️</span> <strong>Safe</strong> for long-term use – non-habit forming</li>
-                    <li><span>✔️</span> Made from <strong>100% Ayurvedic herbs</strong> – no chemicals, no sugar</li>
-                    <li><span>✔️</span> <strong>Suitable</strong> for adults of all ages</li>
+                    <li><span></span> <strong>Relieves</strong> Constipation without cramps or urgency</li>
+                    <li><span></span> <strong>Reduces</strong> gas, bloating, and acidity</li>
+                    <li><span></span> <strong>Supports</strong> healthy digestion and metabolism</li>
+                    <li><span></span> <strong>Safe</strong> for long-term use – non-habit forming</li>
+                    <li><span></span> Made from <strong>100% Ayurvedic herbs</strong> – no chemicals, no sugar</li>
+                    <li><span></span> <strong>Suitable</strong> for adults of all ages</li>
                 </ul>
             </div>
             <div class="benefits-image">
-                <img src="new4.jpg" alt="Key Benefits - Morning Care">
+                <img src="new6.jpg" alt="Key Benefits - Morning Care">
             </div>
         </div>
     </section>
+    <!-- footer -->
+    <br>
+    <footer class="footer">
+        <div class="footer-row">
+            <div class="footer-column">
+                <h3>MORNING CARE</h3>
+                <p>100% Ayurvedic formula for constipation, gas & acidity relief. Backed by 220+ years from Gobind Ram
+                    Kahan Chand. Naturally effective, Gently powerful.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Products</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Distributor Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Care</h3>
+                <p><i class="fas fa-phone"></i> +91-8000545454</p>
+                <p><i class="fas fa-envelope"></i> care@morningcare.in</p>
+                <p>Mon-Sat | 10 AM-6 PM</p>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61577642977929" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/morning_care_?igsh=MTVrcHE3dHA4bTY5aw==" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UC1WbY67iQpN37c9ZLjgcFbw" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/gobindramkahanchand/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+                <h3>Our Promise</h3>
+                <ul class="promises">
+                    <li>100% Ayurvedic</li>
+                    <li>Non-Habit Forming</li>
+                    <li>Made in India</li>
+                    <li>Trusted by Thousands</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Gobind Ram Kahan Chand | All Rights Reserved.</p>
+            <p>THIS PRODUCT IS NOT INTENDED TO DIAGNOSE, TREAT, CURE, OR PREVENT ANY DISEASE. PLEASE CONSULT JORDOFORE
+                USE.</p>
+        </div>
+    </footer>
 
 
     <br>
