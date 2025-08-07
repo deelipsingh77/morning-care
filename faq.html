@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Morning Care - FAQs</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f7f7;
+      padding: 40px;
+    }
+
+    .faq-section {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+    }
+
+    .faq-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #2e7d32;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
+      cursor: pointer;
+    }
+
+    .faq-question {
+      font-size: 18px;
+      font-weight: 500;
+      color: #444;
+      position: relative;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      font-size: 22px;
+      transition: transform 0.3s;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding-top 0.3s;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding-top: 12px;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '–';
+      transform: rotate(180deg);
+    }
+
+    .safety-tips {
+      margin-top: 30px;
+      background: #fffbea;
+      padding: 20px;
+      border-left: 5px solid #f4c430;
+      border-radius: 8px;
+    }
+
+    .safety-tips h3 {
+      font-size: 20px;
+      color: #d97706;
+      margin-bottom: 10px;
+    }
+
+    .safety-tips ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .safety-tips li {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="faq-section">
+    <div class="faq-title">📌 Morning Care – Frequently Asked Questions</div>
+
+    <div class="faq-item">
+      <div class="faq-question">1. What are Morning Care Constipation Granules used for?</div>
+      <div class="faq-answer">
+        Morning Care Granules help relieve constipation, gas, bloating, acidity, and stomach cramps. They also support digestion and improve appetite.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">2. What are the main ingredients?</div>
+      <div class="faq-answer">
+        Ayurvedic herbs like Sanai, Ajwain, Harad, Nishith, Mulethi, Amrood, Papita, Anjeer, and Badam.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">3. How do I take Morning Care Granules?</div>
+      <div class="faq-answer">
+        Take the recommended dose with lukewarm water, 30–60 mins before bedtime or as directed by a physician.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">4. Are there any side effects?</div>
+      <div class="faq-answer">
+        No major side effects if taken as per instructions. Do not exceed the dosage. Consult a doctor if discomfort occurs.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">5. Can children use these granules?</div>
+      <div class="faq-answer">
+        Only under medical supervision. Always check the label for child-specific instructions.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">6. How should I store the granules?</div>
+      <div class="faq-answer">
+        Store in a cool, dry place away from sunlight. Keep out of reach of children.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">7. What is the shelf life?</div>
+      <div class="faq-answer">
+        Usually 24 months. Always check the packaging for expiry.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">8. Are Morning Care Granules safe for daily use?</div>
+      <div class="faq-answer">
+        Yes, when taken as directed. For long-term use, consult your doctor.
+      </div>
+    </div>
+
+    <div class="safety-tips">
+      <h3>⚠️ Key Safety Tips:</h3>
+      <ul>
+        <li>Read the label before use</li>
+        <li>Do not exceed recommended dosage</li>
+        <li>Seek medical advice if symptoms persist</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.faq-item');
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
