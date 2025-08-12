@@ -7,13 +7,180 @@
     <title>Partner With Us – Morning Care</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f3fef4;
-            padding: 40px;
+        /* new */
+        :root {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --accent: #eac232;
+            --accent-light: #388e3c;
+            --muted: #64748b;
+            --max-width: 1100px;
         }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.2;
+            color: #0f172a
+        }
+
+        p {
+            color: #334155;
+            margin-bottom: 1rem
+        }
+
+        .hero {
+            display: grid;
+            gap: 2rem;
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+            color: #fff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        @media(min-width:880px) {
+            .hero {
+                grid-template-columns: 1fr 380px;
+                align-items: center
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.85)
+        }
+
+        .card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        ul {
+            padding-left: 1.2rem;
+            margin-bottom: 1rem
+        }
+
+        li {
+            margin-bottom: 0.5rem
+        }
+
+        .features {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem
+        }
+
+        @media(min-width:640px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        .feature {
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+        }
+
+        .dot {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 0.5rem;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .cta {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 0.7rem 1.2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light)
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent)
+        }
+
+        .btn-ghost:hover {
+            background: var(--accent);
+            color: #fff
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem
+        }
+
+        /*  */
 
         .partner-section {
             background-color: #ffffff;
@@ -282,124 +449,184 @@
 </head>
 
 <body>
-
-    <section class="partner-section">
-        <h2>🤝 Partner With Us</h2>
-        <p class="subtitle">Bring Morning Care to More People – Let’s Grow Together</p>
-
-        <div class="about-brand">
-            <h3> About the Brand</h3>
-            <p><strong>Morning Care Ayurvedic Granules</strong> is a fast-growing and trusted Ayurvedic product,
-                specially formulated for effective relief from <strong>constipation</strong>, improved
-                <strong>digestion</strong>, and overall <strong>gut health</strong>.
-            </p>
-            <p>Backed by a powerful herbal formulation, a loyal customer base, and strong word-of-mouth referrals,
-                Morning Care is rapidly becoming the preferred natural wellness solution across <strong>urban</strong>
-                and <strong>rural India</strong>.</p>
-            <p>As we expand our reach, we are actively seeking passionate <strong>distributors, wholesalers,
-                    retailers</strong>, and <strong>Ayurvedic store owners</strong> to join us in spreading health and
-                healing through Ayurveda.</p>
-        </div>
-    </section>
-    <br>
-    <!-- paragraph 2 -->
-    <section class="why-partner">
-        <h2> Why Partner With Morning Care?</h2>
-        <table class="benefit-table">
-            <thead>
-                <tr>
-                    <th>Benefit</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="checkmark">✅</span>High Demand Product</td>
-                    <td>Constipation and digestion issues are extremely common – daily-use product with high repeat rate
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="checkmark">✅</span>Attractive Margins</td>
-                    <td>Strong distributor & retailer margins for profitable selling</td>
-                </tr>
-                <tr>
-                    <td><span class="checkmark">✅</span>Ayurvedic, Safe, & Trusted</td>
-                    <td>100% herbal, non-habit forming, ideal for all age groups</td>
-                </tr>
-                <tr>
-                    <td><span class="checkmark">✅</span>Fast-Moving SKU Sizes</td>
-                    <td>100g and 200g packs – easy to stock, easy to sell</td>
-                </tr>
-                <tr>
-                    <td><span class="checkmark">✅</span>Marketing Support</td>
-                    <td>Digital creatives, banners, product training, video content</td>
-                </tr>
-                <tr>
-                    <td><span class="checkmark">✅</span>PAN India Dispatch</td>
-                    <td>Quick delivery and low MOQ for new partners</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <!--  -->
-    <br>
-    <!-- footer -->
-    <footer class="footer">
-        <div class="footer-container">
-
-            <div class="footer-section about">
-                <h3>About Morning Care</h3>
-                <p>100% Ayurvedic formula for constipation, gas & acidity relief. Backed by 220+ years of heritage from
-                    <strong>Gobind Ram Kahan Chand</strong>. Naturally effective. Gently powerful.
+    <!-- new-->
+    <main class="container">
+        <section class="hero">
+            <div>
+                <span class="badge">A Legacy of 220+ Years</span>
+                <h1>Morning Care — Natural Ayurvedic Gut Support</h1>
+                <p>From Gobind Ram Kahan Chand—est. 1805—trusted for generations for authentic ayurvedic formulations.
                 </p>
             </div>
-
-            <div class="footer-section links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="faqs.html">FAQs</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <!-- <li><a href="/distributor-login">Distributor Login</a></li> -->
-                </ul>
+            <div>
+                <img src="logo.jpg" alt="Morning Care"
+                    style="width:85%;border-radius:13rem">
             </div>
+        </section>
 
-            <div class="footer-section contact">
-                <h3>Customer Care</h3>
-                <p>📞 <a href="tel:+918000545454">+91-8000545454</a></p>
-                <p>📧 <a href="mailto:info@morningcaregk.com">info@morningcaregk.com</a></p>
-            </div>
-
-            <div class="footer-section follow">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61577642977929" target="_blank"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/morning_care_?igsh=MTVrcHE3dHA4bTY5aw==" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/channel/UC1WbY67iQpN37c9ZLjgcFbw" target="_blank"><i
-                            class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/gobindramkahanchand/" target="_blank"><i
-                            class="fab fa-linkedin-in"></i></a>
+        <section class="card" style="margin-top:2rem">
+            <h2>About Morning Care</h2>
+            <p>We believe good gut health begins with a clean, balanced system. Many modern ailments trace back to an
+                unhealthy digestive system — Morning Care is the first step toward restoring gut balance using Ayurvedic
+                herbs.</p>
+            <h3>Key Ingredients</h3>
+            <ul>
+                <li>Senna — natural gentle bowel support</li>
+                <li>Harad — traditional digestive tonic</li>
+                <li>Mulethi — soothes the digestive tract</li>
+                <li>Ajwain — supports digestion and reduces gas</li>
+                <li>Figs — natural fibre and mild laxative support</li>
+            </ul>
+            <div class="features">
+                <div class="feature">
+                    <div class="dot">1</div>
+                    <div><strong>Gentle bowel cleansing</strong><br>Non-habit forming relief for constipation.</div>
+                </div>
+                <div class="feature">
+                    <div class="dot">2</div>
+                    <div><strong>Less gas & bloating</strong><br>Herbs that reduce acidity and discomfort.</div>
+                </div>
+                <div class="feature">
+                    <div class="dot">3</div>
+                    <div><strong>Improved digestion</strong><br>Supports nutrient absorption and gut comfort.</div>
+                </div>
+                <div class="feature">
+                    <div class="dot">4</div>
+                    <div><strong>Fresh morning energy</strong><br>Feel lighter and more energetic daily.</div>
                 </div>
             </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <div class="promise">
-                <span>✅ 100% Ayurvedic</span>
-                <span>✅ Non-Habit Forming</span>
-                <span>✅ Made in India</span>
-                <span>✅ Trusted by Thousands</span>
+            <div class="cta">
+                <button class="btn btn-primary">Buy Morning Care</button>
+                <button class="btn btn-ghost">Learn More</button>
             </div>
-            <p class="disclaimer">© 2025 Gobind Ram Kahan Chand | All Rights Reserved.<br>
-                This product is not intended to diagnose, treat, cure, or prevent any disease. Please consult your
-                physician before use.</p>
-        </div>
-    </footer>
+        </section>
+
+        <footer>
+            Made by Gobind Ram Kahan Chand — Since 1805 • Natural, trusted ayurvedic care
+        </footer>
+        <!--  -->
+
+        <section class="partner-section">
+            <h2>🤝 Partner With Us</h2>
+            <p class="subtitle">Bring Morning Care to More People – Let’s Grow Together</p>
+
+            <div class="about-brand">
+                <h3> About the Brand</h3>
+                <p><strong>Morning Care Ayurvedic Granules</strong> is a fast-growing and trusted Ayurvedic product,
+                    specially formulated for effective relief from <strong>constipation</strong>, improved
+                    <strong>digestion</strong>, and overall <strong>gut health</strong>.
+                </p>
+                <p>Backed by a powerful herbal formulation, a loyal customer base, and strong word-of-mouth referrals,
+                    Morning Care is rapidly becoming the preferred natural wellness solution across
+                    <strong>urban</strong>
+                    and <strong>rural India</strong>.</p>
+                <p>As we expand our reach, we are actively seeking passionate <strong>distributors, wholesalers,
+                        retailers</strong>, and <strong>Ayurvedic store owners</strong> to join us in spreading health
+                    and
+                    healing through Ayurveda.</p>
+            </div>
+        </section>
+        <br>
+        <!-- paragraph 2 -->
+        <section class="why-partner">
+            <h2> Why Partner With Morning Care?</h2>
+            <table class="benefit-table">
+                <thead>
+                    <tr>
+                        <th>Benefit</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="checkmark">✅</span>High Demand Product</td>
+                        <td>Constipation and digestion issues are extremely common – daily-use product with high repeat
+                            rate
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="checkmark">✅</span>Attractive Margins</td>
+                        <td>Strong distributor & retailer margins for profitable selling</td>
+                    </tr>
+                    <tr>
+                        <td><span class="checkmark">✅</span>Ayurvedic, Safe, & Trusted</td>
+                        <td>100% herbal, non-habit forming, ideal for all age groups</td>
+                    </tr>
+                    <tr>
+                        <td><span class="checkmark">✅</span>Fast-Moving SKU Sizes</td>
+                        <td>100g and 200g packs – easy to stock, easy to sell</td>
+                    </tr>
+                    <tr>
+                        <td><span class="checkmark">✅</span>Marketing Support</td>
+                        <td>Digital creatives, banners, product training, video content</td>
+                    </tr>
+                    <tr>
+                        <td><span class="checkmark">✅</span>PAN India Dispatch</td>
+                        <td>Quick delivery and low MOQ for new partners</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--  -->
+        <br>
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer-container">
+
+                <div class="footer-section about">
+                    <h3>About Morning Care</h3>
+                    <p>100% Ayurvedic formula for constipation, gas & acidity relief. Backed by 220+ years of heritage
+                        from
+                        <strong>Gobind Ram Kahan Chand</strong>. Naturally effective. Gently powerful.
+                    </p>
+                </div>
+
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <!-- <li><a href="/distributor-login">Distributor Login</a></li> -->
+                    </ul>
+                </div>
+
+                <div class="footer-section contact">
+                    <h3>Customer Care</h3>
+                    <p>📞 <a href="tel:+918000545454">+91-8000545454</a></p>
+                    <p>📧 <a href="mailto:info@morningcaregk.com">info@morningcaregk.com</a></p>
+                </div>
+
+                <div class="footer-section follow">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61577642977929" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/morning_care_?igsh=MTVrcHE3dHA4bTY5aw==" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UC1WbY67iQpN37c9ZLjgcFbw" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/in/gobindramkahanchand/" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="promise">
+                    <span>✅ 100% Ayurvedic</span>
+                    <span>✅ Non-Habit Forming</span>
+                    <span>✅ Made in India</span>
+                    <span>✅ Trusted by Thousands</span>
+                </div>
+                <p class="disclaimer">© 2025 Gobind Ram Kahan Chand | All Rights Reserved.<br>
+                    This product is not intended to diagnose, treat, cure, or prevent any disease. Please consult your
+                    physician before use.</p>
+            </div>
+        </footer>
 
 </body>
 
