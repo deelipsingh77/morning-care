@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout – Morning Care</title>
+    <style>
+        :root {
+            --bg: #fcfcfe;
+            --text: #0f172a;
+            --muted: #64748b;
+            --line: #e6ebf2;
+            --brand: #f8fafc;
+            --accent: #ff9900;
+            --ok: #0a7d33;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.4 system-ui, -apple-system, Segoe UI, Roboto
+        }
+
+        header,
+        footer {
+            background: var(--brand);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px
+        }
+
+        h1 {
+            font-size: 22px;
+            margin: 8px 0 12px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.25fr .75fr;
+            gap: 20px
+        }
+
+        @media (max-width:900px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .row.spread {
+            justify-content: space-between
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .thumb {
+            width: 92px;
+            height: 92px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            object-fit: cover;
+            background: #f1f5f9
+        }
+
+        .title {
+            font-weight: 700
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700
+        }
+
+        .pill {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            border: 1px solid var(--line);
+            padding: 8px 10px;
+            border-radius: 999px
+        }
+
+        .qty {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            overflow: hidden
+        }
+
+        .qty button {
+            border: 0;
+            background: #f8fafc;
+            padding: 8px 12px;
+            cursor: pointer
+        }
+
+        .qty input {
+            width: 56px;
+            border: 0;
+            text-align: center;
+            padding: 8px
+        }
+
+        .totals {
+            display: grid;
+            gap: 8px
+        }
+
+        .totals .row {
+            justify-content: space-between
+        }
+
+        .grand {
+            font-size: 22px;
+            font-weight: 800
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px 14px;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 700;
+            display: block;
+            text-align: center
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #111
+        }
+
+        .btn-secondary {
+            background: #ffd814;
+            color: #111
+        }
+
+        .method {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin: 6px 0
+        }
+
+        .method input {
+            transform: translateY(1px)
+        }
+
+        .method-box {
+            display: none;
+            margin: 8px 0 0
+        }
+
+        .method-box.active {
+            display: block
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        @media (max-width:700px) {
+            .grid-2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff
+        }
+
+        .ok {
+            color: var(--ok);
+            font-weight: 700
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            margin-top: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container row spread">
+            <strong>Morning Care</strong>
+            <span class="muted">Secure Checkout</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            <!-- Left: Address + Payment -->
+            <section class="card">
+                <h1>Delivery details</h1>
+                <div class="grid-2">
+                    <div>
+                        <label class="muted">Full name</label>
+                        <input id="name" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label class="muted">Phone</label>
+                        <input id="phone" placeholder="10-digit mobile">
+                    </div>
+                    <div>
+                        <label class="muted">Pincode</label>
+                        <input id="pin" placeholder="e.g. 110001" inputmode="numeric" maxlength="6">
+                    </div>
+                    <div>
+                        <label class="muted">City</label>
+                        <input id="city" placeholder="City">
+                    </div>
+                    <div style="grid-column:1/-1">
+                        <label class="muted">Full address</label>
+                        <textarea id="addr" rows="3" placeholder="House no, street, area, landmark"></textarea>
+                    </div>
+                    <div>
+                        <label class="muted">State</label>
+                        <input id="state" placeholder="State">
+                    </div>
+                </div>
+
+                <h1 style="margin-top:18px">Payment method</h1>
+                <div>
+                    <label class="method">
+                        <input type="radio" name="pay" value="upi" checked> UPI (GPAY/PhonePe/Paytm)
+                    </label>
+                    <div class="method-box active" data-box="upi">
+                        <input id="upi" placeholder="yourname@bank (VPA)">
+                    </div>
+
+                    <label class="method">
+                        <input type="radio" name="pay" value="card"> Credit / Debit Card
+                    </label>
+                    <div class="method-box" data-box="card">
+                        <div class="grid-2">
+                            <div><input id="cardName" placeholder="Name on card"></div>
+                            <div><input id="cardNo" placeholder="Card number" inputmode="numeric" maxlength="19"></div>
+                            <div><input id="exp" placeholder="MM/YY" maxlength="5"></div>
+                            <div><input id="cvv" placeholder="CVV" inputmode="numeric" maxlength="4"></div>
+                        </div>
+                    </div>
+
+                    <label class="method">
+                        <input type="radio" name="pay" value="net"> NetBanking
+                    </label>
+                    <div class="method-box" data-box="net">
+                        <select id="bank">
+                            <option value="">Select bank</option>
+                            <option>HDFC Bank</option>
+                            <option>ICICI Bank</option>
+                            <option>SBI</option>
+                            <option>Axis Bank</option>
+                            <option>Kotak Mahindra</option>
+                        </select>
+                    </div>
+
+                    <label class="method">
+                        <input type="radio" name="pay" value="cod"> Cash on Delivery
+                    </label>
+                    <div class="method-box" data-box="cod">
+                        <span class="muted">Pay in cash / UPI to the delivery agent.</span>
+                    </div>
+                </div>
+
+                <div style="margin-top:16px" class="row">
+                    <button id="placeOrder" class="btn btn-primary">Place Order & Pay</button>
+                </div>
+                <p id="msg" class="ok" style="display:none;margin-top:10px">Order placed successfully 🎉</p>
+            </section>
+
+            <!-- Right: Order Summary -->
+            <aside class="card" id="summary">
+                <h1>Order summary</h1>
+                <div class="row">
+                    <img id="s-img" class="thumb" alt="new5" src="new5.jpg">
+                    <div style="flex:1">
+                        <div id="s-title" class="title"></div>
+                        <div class="muted">Sold by: morning care</div>
+                        <div class="row" style="margin-top:8px;gap:10px">
+                            <div class="pill"><span class="muted">Price</span> <strong id="s-price">₹249</strong></div>
+                            <div class="pill">
+                                <span class="muted">Qty</span>
+                                <span class="qty">
+                                    <button type="button" id="minus">−</button>
+                                    <input id="q" value="1" inputmode="numeric">
+                                    <button type="button" id="plus">+</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border:none;border-top:1px solid var(--line);margin:16px 0">
+
+                <div class="totals">
+                    <div class="row"><span class="muted">Subtotal</span><strong id="t-sub">₹249</strong></div>
+                    <div class="row"><span class="muted">Shipping</span><strong class="ok">FREE</strong></div>
+                    <div class="row grand"><span>Total</span><span id="t-grand">₹249</span></div>
+                </div>
+
+                <div style="margin-top:14px">
+                    <button class="btn btn-secondary" id="payNow">Pay Now</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container muted">Need help? support@example.com</div>
+    </footer>
+
+    <script>
+        // Load checkout payload
+        const data = JSON.parse(localStorage.getItem('checkout') || '{}');
+        const state = {
+            title: data.title || 'Product',
+            unitPrice: Number(data.unitPrice) || 0,
+            qty: Number(data.qty) || 1,
+            image: data.image || '',
+            currency: data.currency || 'INR'
+        };
+
+        const sImg = document.getElementById('s-img');
+        const sTitle = document.getElementById('s-title');
+        const sPrice = document.getElementById('s-price');
+        const qInput = document.getElementById('q');
+        const tSub = document.getElementById('t-sub');
+        const tGrand = document.getElementById('t-grand');
+        const minus = document.getElementById('minus');
+        const plus = document.getElementById('plus');
+        const msg = document.getElementById('msg');
+
+        function inr(n) { return '₹' + (Number(n) || 0).toLocaleString('en-IN'); }
+
+        function render() {
+            sImg.src = state.image;
+            sImg.alt = state.title;
+            sTitle.textContent = state.title;
+            sPrice.textContent = inr(state.unitPrice);
+            qInput.value = state.qty;
+            const subtotal = state.unitPrice * state.qty;
+            tSub.textContent = inr(subtotal);
+            tGrand.textContent = inr(subtotal); // shipping free
+        }
+        render();
+
+        minus.onclick = () => { state.qty = Math.max(1, (Number(qInput.value) || 1) - 1); render(); saveBack(); };
+        plus.onclick = () => { state.qty = Math.min(99, (Number(qInput.value) || 1) + 1); render(); saveBack(); };
+        qInput.oninput = () => {
+            const v = Math.max(1, Math.min(99, Number(qInput.value) || 1));
+            state.qty = v; render(); saveBack();
+        };
+
+        function saveBack() {
+            // keep product page & checkout in sync if user goes back
+            const payload = JSON.parse(localStorage.getItem('checkout') || '{}');
+            payload.qty = state.qty;
+            localStorage.setItem('checkout', JSON.stringify(payload));
+        }
+
+        // Payment method toggles
+        const radios = document.querySelectorAll('input[name="pay"]');
+        const boxes = document.querySelectorAll('.method-box');
+        radios.forEach(r => {
+            r.addEventListener('change', () => {
+                boxes.forEach(b => b.classList.remove('active'));
+                const active = document.querySelector(`.method-box[data-box="${r.value}"]`);
+                if (active) active.classList.add('active');
+            });
+        });
+
+        // Basic validation (demo)
+        function validate() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const pin = document.getElementById('pin').value.trim();
+            const addr = document.getElementById('addr').value.trim();
+            if (!name || !/^\d{10}$/.test(phone) || !/^\d{6}$/.test(pin) || !addr) {
+                alert('Please fill name, 10-digit phone, 6-digit pincode and address.');
+                return false;
+            }
+            const method = document.querySelector('input[name="pay"]:checked')?.value;
+            if (method === 'upi') {
+                const upi = document.getElementById('upi').value.trim();
+                if (!upi) { alert('Enter your UPI ID'); return false; }
+            }
+            if (method === 'card') {
+                const cn = document.getElementById('cardNo').value.replace(/\s+/g, '');
+                const exp = document.getElementById('exp').value.trim();
+                const cvv = document.getElementById('cvv').value.trim();
+                if (cn.length < 12 || !exp || cvv.length < 3) { alert('Enter valid card details'); return false; }
+            }
+            if (method === 'net' && !document.getElementById('bank').value) {
+                alert('Select your bank'); return false;
+            }
+            return true;
+        }
+
+        // Demo: Place Order buttons
+        document.getElementById('placeOrder').onclick = tryPlace;
+        document.getElementById('payNow').onclick = tryPlace;
+
+        function tryPlace() {
+            if (!validate()) return;
+            msg.style.display = 'block';
+            alert('Order placed successfully! (Demo)');
+            // Here you would call your backend / payment gateway
+        }
+    </script>
+</body>
+
+</html>
