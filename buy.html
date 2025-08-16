@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buy Now</title>
+    <style>
+        :root {
+            --bg: #fff;
+            --text: #111;
+            --muted: #555;
+            --brand: #d5ae37;
+            --accent: #ff9900;
+            --line: #e5e7eb;
+            --card: #f8fafc;
+            --success: #0a7d33;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font: 16px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+            color: var(--text);
+            background: var(--bg)
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1280px;
+            margin-inline: auto;
+            padding: 16px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 0.9fr;
+            gap: 24px
+        }
+
+        @media (max-width:1100px) {
+            .grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (max-width:780px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 16px
+            }
+        }
+
+        /* Left: Media */
+        .media {
+            display: grid;
+            grid-template-columns: 96px 1fr;
+            gap: 16px
+        }
+
+        @media (max-width:780px) {
+            .media {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .thumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 560px;
+            overflow: auto
+        }
+
+        .thumb {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 4px;
+            cursor: pointer;
+            /* background: #fff */
+        }
+
+        .thumb img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block
+        }
+
+        .thumb.active {
+            outline: 2px solid var(--accent);
+        }
+
+        .main-image {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px;
+            /* background: #fff */
+        }
+
+        .main-image .fit {
+            width: 100%;
+            height: 620px;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 8px;
+            /* background: #ffffff; */
+        }
+
+        /* Middle: Details */
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            margin-top: 6px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px
+        }
+
+        .stars {
+            color: #eab308;
+            font-size: 18px;
+            letter-spacing: 1px
+        }
+
+        .price-wrap {
+            margin-top: 12px;
+            display: flex;
+            align-items: baseline;
+            gap: 12px
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: 700
+        }
+
+        .strike {
+            color: var(--muted);
+            text-decoration: line-through
+        }
+
+        .off {
+            color: #b91c1c;
+            font-weight: 700
+        }
+
+        .tax {
+            margin-top: 10px
+        }
+
+        .pill-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 12px 0
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            padding: 10px 12px;
+            border-radius: 12px
+        }
+
+        /* Right: Purchase card */
+        .purchase {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px;
+            background: #fff;
+            position: sticky;
+            top: 16px;
+            height: max-content
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0
+        }
+
+        .stock {
+            color: var(--success);
+            font-weight: 700
+        }
+
+        .qty {
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        select {
+            padding: 8px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fff
+        }
+
+        .btn {
+            width: 100%;
+            /* padding: 12px 14px; */
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 700;
+            /* padding-top: 100px; */
+        }
+
+        .btn-cart {
+            background: #ffd814;
+            height: 25px;
+            color: #111;
+        }
+
+        .btn-buy {
+            background: var(--accent);
+            color: #111;
+            margin-top: 10px
+        }
+
+        .btn:hover {
+            filter: brightness(0.97)
+        }
+
+        /* Links / anchors */
+        a {
+            color: #2563eb;
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        /* Sections */
+        .card {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px;
+            /* background: #fff */
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px
+        }
+
+        @media (max-width:1100px) {
+            .offer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+        }
+
+        @media (max-width:600px) {
+            .offer-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* Utilities */
+        .spacer {
+            height: 8px
+        }
+
+        .small {
+            font-size: 14px
+        }
+
+        .badge {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+            padding: 2px 6px;
+            border-radius: 999px;
+            font-size: 12px
+        }
+
+        .btn.btn-buy {
+            background: var(--accent);
+            color: #111;
+            margin-top: 10px
+        }
+
+        /* ---------- FULL IMAGE FIT + RESPONSIVE OVERRIDES ---------- */
+
+        /* Center the image inside its frame */
+        .main-image {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px;
+            background: #fff;
+            display: flex;
+            /* center content */
+            align-items: center;
+            /* vertical center */
+            justify-content: center;
+            /* horizontal center */
+        }
+
+        /* Show ENTIRE image (no crop), scale responsively */
+        .main-image .fit {
+            width: 100%;
+            height: auto;
+            /* let height adjust naturally */
+            max-height: clamp(360px, 70vh, 820px);
+            object-fit: contain;
+            /* full image visible */
+            object-position: center;
+            /* keep centered */
+            display: block;
+            border-radius: 8px;
+            background: #f1f5f9;
+            /* subtle letterbox bg */
+        }
+
+        /* Laptops/tablets: a little smaller height */
+        @media (max-width:1100px) {
+            .main-image .fit {
+                max-height: clamp(320px, 62vh, 720px);
+            }
+        }
+
+        /* Mobile: comfortable height */
+        @media (max-width:780px) {
+            .main-image .fit {
+                max-height: 58vh;
+            }
+        }
+
+        /* ---------- MOBILE THUMBS: HORIZONTAL + SWIPE ---------- */
+        @media (max-width:780px) {
+            .media {
+                grid-template-columns: 1fr;
+            }
+
+            .thumbs {
+                flex-direction: row;
+                /* horizontal strip */
+                overflow-x: auto;
+                /* swipe left-right */
+                overflow-y: hidden;
+                gap: 8px;
+                padding-bottom: 6px;
+            }
+
+            .thumb {
+                width: 84px;
+                flex: 0 0 auto;
+            }
+        }
+
+        /* Optional: make all <img> naturally responsive */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ---- MAIN IMAGE BOX: fixed box + full image fit ---- */
+        .main-image {
+            position: relative;
+            display: grid;
+            place-items: center;
+            /* center image */
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px;
+            background: #ffffff;
+
+            /* Keep a consistent box shape (change ratio if you want) */
+            aspect-ratio: 4 / 5;
+            /* try 1/1 (square) or 16/9 if you prefer */
+            max-height: min(72vh, 820px);
+            /* never too tall on viewport */
+        }
+
+        .main-image .fit {
+            width: 100%;
+            height: 100% !important;
+            /* override any old fixed heights */
+            object-fit: contain;
+            /* show entire image */
+            object-position: center;
+            display: block;
+            border-radius: 8px;
+            background: #f1f5f9;
+            /* subtle letterbox bg */
+        }
+
+        /* Mobile tweaks */
+        @media (max-width:1100px) {
+            .main-image {
+                max-height: min(66vh, 720px);
+            }
+        }
+
+        @media (max-width:780px) {
+            .media {
+                grid-template-columns: 1fr;
+            }
+
+            .main-image {
+                max-height: 58vh;
+            }
+
+            .thumbs {
+                flex-direction: row;
+                overflow-x: auto;
+                overflow-y: hidden;
+                gap: 8px;
+                padding-bottom: 6px;
+            }
+
+            .thumb {
+                width: 84px;
+                flex: 0 0 auto;
+            }
+        }
+
+        /* Optional tiny loader while swapping images */
+        .main-image.loading::after {
+            content: "";
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border: 2px solid #e5e7eb;
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+        .name{
+            font-size: 18px;
+            font-weight: bold;
+            margin: 12px 0 4px;
+            background: #cdbf03;
+            text-align: center;
+            border-radius: 10px ;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header style="background:var(--brand);color:#dc960a;padding:10px 0;">
+        <div class="container" style="display:flex;gap:16px;align-items:center;">
+            <!-- <strong style="font-size:20px">myStore</strong> -->
+            <input placeholder="Search products" style="flex:1;padding:10px;border-radius:8px;border:none" />
+            <a href="#" class="small" style="color:#fff">Orders</a>
+            <a href="#" class="small" style="color:#fff">Cart</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="small muted" style="margin:12px 0">
+            <a href="index.html">Home</a> › <a href="#">Buy Now</a> ›
+        </nav>
+
+        <section class="grid">
+            <!-- LEFT: Images -->
+            <section class="media">
+                <aside class="thumbs" id="thumbs">
+                    <!-- Thumbs (replace src with any image; it will auto-fit) -->
+                    <button class="thumb active" data-src="m2.jpg">
+                        <img alt="thumb 1" src="m2.jpg" />
+                    </button>
+                    <button class="thumb" data-src="m3.jpg">
+                        <img alt="thumb 2" src="m3.jpg" />
+                    </button>
+                    <button class="thumb" data-src="m5.jpg">
+                        <img alt="thumb 3" src="m5.jpg" />
+                    </button>
+                    <button class="thumb" data-src="m4.jpg">
+                        <img alt="thumb 4" src="m4.jpg" />
+                    </button>
+                </aside>
+                <div class="main-image">
+                    <img id="mainImg" class="fit" alt="product main" src="m1.jpg" />
+                </div>
+            </section>
+
+            <!-- MIDDLE: Details -->
+            <section>
+                <!-- <div class="badge">Amazon's Choice</div> -->
+                <h1 class="title">Morning Care Granules | Natural Laxative | Constipation Relief | Relief from digestive
+                    problems like Acidity, Gas & Bloating</h1>
+                <div class="subtitle muted">Morning Care Made from
+                    100% Ayurvedic herbs</div>
+                <div class="rating">
+                    <div class="stars">★★★★★</div>
+                    <!-- <a href="#reviews" class="small">431 ratings</a> -->
+                </div>
+
+                <div class="price-wrap">
+                    <!-- <span class="off">-68%</span> -->
+                    <span class="price">₹249</span>
+                    <span class="strike small">M.R.P: ₹300</span>
+                </div>
+                <!-- <div class="tax small">Inclusive of all taxes</div> -->
+
+                <div class="pill-row">
+                    <div class="pill small">Pay on Delivery</div>
+                    <div class="pill small">10 days Return</div>
+                    <div class="pill small">Top Brand</div>
+                </div>
+
+                <!-- <div class="card">
+                    <h3 style="margin:0 0 8px 0">Offers</h3>
+                    <div class="offer-grid small">
+                        <div class="pill">Cashback up to ₹17</div>
+                        <div class="pill">Bank Offer: up to ₹1,000 off</div>
+                        <div class="pill">Partner Offer: save up to 28%</div>
+                    </div>
+                </div> -->
+
+                <div class="spacer"></div>
+                <!-- <div class="small">Visit the <a href="#">Tied Ribbons Store</a></div> -->
+            </section>
+
+            <!-- RIGHT: Buy Box -->
+            <aside class="purchase">
+                <div class="row" style="font-size:28px;font-weight:700">₹249<span class="small muted"></span></div>
+                <!-- <div class="small">FREE delivery <strong>Monday, 18 August</strong>.</div> -->
+                <div class="row">
+                    <div class="stock">In stock</div>
+                </div>
+                <div class="row qty">
+                    <label for="qty" class="small">Quantity:</label>
+                    <select id="qty">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                    </select>
+                </div>
+                <button class="btn btn-cart" id="addToCart">Add to Cart</button>
+                <!-- Anchor tag that opens another page/new tab -->
+                <div class="name">
+                    <a class="" id="buyNow" href="order.html" target="_blank" rel="noopener">Buy Now</a>
+                </div>
+
+
+                <div class="spacer"></div>
+                <!-- <label class="small"><input type="checkbox" /> Add gift options</label> -->
+                <div class="spacer"></div>
+                <a class="small" href="#">Add to Wish List</a>
+            </aside>
+        </section>
+
+        <section id="reviews" class="container" style="padding:0;margin-top:24px">
+            <div class="card">
+                <h3 style="margin:0 0 8px 0">Customer reviews</h3>
+                <div class="rating">
+                    <div class="stars">★★★★☆</div><span class="small">4.0 out of 5</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- <footer style="margin-top:40px;background:#111;color:#f3f4f6">
+        <div class="container"
+            style="padding:20px 16px;display:grid;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr))">
+            <div><strong>Get to Know Us</strong>
+                <div class="small"><a href="#" style="color:#9ca3af">About</a></div>
+            </div>
+            <div><strong>Connect</strong>
+                <div class="small"><a href="#" style="color:#9ca3af">Contact</a></div>
+            </div>
+            <div><strong>Make Money</strong>
+                <div class="small"><a href="#" style="color:#9ca3af">Sell on Store</a></div>
+            </div>
+            <div><strong>Help</strong>
+                <div class="small"><a href="#" style="color:#9ca3af">Returns</a></div>
+            </div>
+        </div>
+    </footer> -->
+
+    <script>
+        // Thumbnail switcher (any image will auto-fit via object-fit:contain)
+        const mainImg = document.getElementById('mainImg');
+        document.getElementById('thumbs').addEventListener('click', (e) => {
+            const btn = e.target.closest('.thumb');
+            if (!btn) return;
+            document.querySelectorAll('.thumb').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const src = btn.getAttribute('data-src');
+            if (src) mainImg.src = src;
+        });
+
+        // Add to cart demo
+        document.getElementById('addToCart').addEventListener('click', () => {
+            alert('Added to cart ✔');
+        });
+        // 
+
+        (function () {
+            const box = document.querySelector('.main-image');
+            const mainImg = document.getElementById('mainImg');
+            const thumbs = document.getElementById('thumbs');
+
+            thumbs.addEventListener('click', (e) => {
+                const btn = e.target.closest('.thumb');
+                if (!btn) return;
+
+                // active thumb UI
+                document.querySelectorAll('.thumb').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const src = btn.getAttribute('data-src');
+                if (!src || mainImg.src === src) return;
+
+                // preload for a flicker-free swap
+                box.classList.add('loading');
+                const tmp = new Image();
+                tmp.onload = () => {
+                    mainImg.src = src;             // swap
+                    mainImg.alt = btn.querySelector('img')?.alt || 'product image';
+                    box.classList.remove('loading');
+                };
+                tmp.onerror = () => box.classList.remove('loading');
+                tmp.src = src;
+            });
+        })();
+    </script>
+
+
+</body>
+
+</html>
